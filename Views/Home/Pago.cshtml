@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Pago";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<div class="container">
+
+    <form method="post" action="/Home/Pago">
+        <div class="form-group">
+            <label for="numero_tarjeta">Número de tarjeta de crédito:</label>
+            <input type="number" class="form-control" id="numero_tarjeta" name="numero_tarjeta" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_vencimiento">Fecha de vencimiento (MM/AA):</label>
+            <input type="text" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" pattern="\d\d/\d\d"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="montoPagar">Monto a pagar:</label>
+            <input type="number" class="form-control" id="montoPagar" name="montoPagar" step="0.01" min="0" required>
+        </div>
+        <div class="form-group">
+            <label for="dias_retraso">Días de atraso:</label>
+            <input type="number" class="form-control" id="dias_retraso" name="dias_retraso" min="0">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calcularPago()">Calcular pago por mora</button>
+        <div class="form-group">
+            <label for="mora">Cargo por mora:</label>
+            <input type="number" class="form-control" id="mora" name="mora" step="0.01" min="0" readonly>
+        </div>
+        <div class="form-group">
+            <label for="totalPagar">total a pagar:</label>
+            <input type="number" class="form-control" id="totalPagar" name="totalPagar" readonly>
+        </div>
+
+    </form>
+</div>
